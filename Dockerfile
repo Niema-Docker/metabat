@@ -3,7 +3,7 @@ FROM alpine:latest
 
 # install MetaBAT
 RUN apk update && \
-    apk add --no-cache autoconf bash boost-dev bzip2-dev cmake gcc g++ make musl-dev xz-dev zlib-dev && \
+    apk add --no-cache autoconf bash boost-dev boost-static bzip2-dev cmake gcc g++ make musl-dev xz-dev zlib-dev && \
     wget -qO- "https://github.com/samtools/htslib/releases/download/1.24/htslib-1.24.tar.bz2" | tar -xj && \
     cd htslib-* && \
     ./configure && \
