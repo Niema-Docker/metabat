@@ -1,7 +1,7 @@
-# Minimal Docker image for Minimap2 using Alpine base
+# Minimal Docker image for MetaBAT using Alpine base
 FROM alpine:latest
 
-# install Minimap2
+# install MetaBAT
 RUN apk update && \
     apk add --no-cache autoconf bash boost-dev bzip2-dev cmake gcc g++ make musl-dev xz-dev zlib-dev && \
     wget -qO- "https://github.com/samtools/htslib/releases/download/1.24/htslib-1.24.tar.bz2" | tar -xj && \
@@ -14,7 +14,7 @@ RUN apk update && \
     cd *metabat* && \
     mkdir build && \
     cd build && \
-    cmake ..
+    cmake .. && \
     make && \
     make install && \
     cd ../.. && \
